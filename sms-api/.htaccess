@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# This is the base URL path of my project
+
+RewriteBase /PHP-Student-Management-System/sms-api/
+
+# If the request is NOT an existing file...
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+# ...and NOT an existing directory...
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# ...then send everything to index.php
+
+RewriteRule ^ index.php [QSA,L]
