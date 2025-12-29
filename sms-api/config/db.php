@@ -51,7 +51,7 @@ class Database
                     ON DELETE RESTRICT ON UPDATE CASCADE
             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;",
 
-            // users
+            // users (class_id is optional. This is to facilitate the administrator role)
             "CREATE TABLE IF NOT EXISTS users (
                 id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
                 role VARCHAR(50) NOT NULL,
