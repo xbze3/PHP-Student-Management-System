@@ -61,13 +61,13 @@ INSERT INTO users (role, email, password_hash, class_id) VALUES
 (
   'teacher',
   'teacher@teacher.com',
-  '$2y$10$flMW.BX/1HNJ0Xtwd.sFXuyRL9hpjMI/e2HoKnJED2plS/Ozbr4DS',
+  '$2y$10$6QcBsoaQ3DHEoHx9Y49TxeoAEGK4vY1ET2BWHp6djr0Gx5ED/tpRC',
   (SELECT id FROM classes WHERE `class`='1A' LIMIT 1)
 ),
 (
   'admin',
   'admin@admin.com',
-  '$2y$10$dYmEecQgS6Q70VvZgM9/6e6L0ny3MZk8GdTqgQxPUncM3r.0jRkE2',
+  '$2y$10$PIsXXASAboDW3oFz2r2OTOQ4eRuDCnTErCwNB/xolM0oWyPADeqDO',
   NULL
 );
 
