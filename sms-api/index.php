@@ -57,6 +57,14 @@ if ($uri === '/get-all-grades' && $method === 'GET') {
     exit;
 }
 
+if ($uri === '/get-classes' && $method === 'GET') {
+    Auth::requireRole('admin');
+    $smsController->getClassesByGrade();
+    exit;
+}
+
+
+
 // 404
 JsonHelpers::json(404, [
     "success" => false,

@@ -27,4 +27,33 @@ class SmsController
             'grades' => $grades
         ]);
     }
+
+    public function getClassesByGrade(): void
+    {
+        // Validate input
+        if (!isset($_GET['grade_id'])) {
+            http_response_code(400);
+            echo json_encode(['error' => 'grade_id is required']);
+            return;
+        }
+
+        $gradeId = (int) $_GET['grade_id'];
+
+        $rows = $this->smsModel->getClassesByGrade($gradeId);
+
+        $classes = array_map(function ($row) {
+            return [
+                'id'    => (int) $row['id'],
+                'class' => $row['class'],
+            ];
+        }, $rows);
+
+        http_response_code(200);
+        echo json_encode([
+            'classes' => $classes
+        ]);
+    }
+
+
+    
 }
