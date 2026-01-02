@@ -18,4 +18,18 @@ class SmsModel
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getClassesByGrade($gradeId)
+    {
+        $sql = "SELECT id, class 
+                FROM classes 
+                WHERE grade_id = :grade_id
+                ORDER BY class";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['grade_id' => $gradeId]);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
